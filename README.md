@@ -101,11 +101,13 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ### Option B: Production Containerization via Docker (Port 4000)
 
-The project includes a multi-stage `Dockerfile` and `docker-compose.yml` leveraging Next.js `standalone` mode to minimize image overhead. Docker maps host port `4000` to container port `3000` to prevent port conflicts with local Node dev servers or Windows Hyper-V reserved ports.
+The project includes a multi-stage `Dockerfile` and `docker-compose.yml` leveraging Next.js `standalone` mode to minimize image overhead.
+
+> **Port Mapping Note**: Docker Compose maps host **port 4000** (`4000:3000`) by default. This avoids port collisions with local Node dev servers running on port `3000` and bypasses OS-level port exclusion ranges (such as Windows Hyper-V dynamic port reservations from 2947 to 3146). If you wish to change the host port, set `APP_PORT=8080` in your environment.
 
 #### Build & Run via Docker Compose
 ```bash
-# Build and launch standalone containerized application on port 4000
+# Build and launch standalone containerized application on http://localhost:4000
 docker compose up -d --build
 ```
 Open [http://localhost:4000](http://localhost:4000) in your browser.
