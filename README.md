@@ -24,7 +24,7 @@ sequenceDiagram
     Crypto->>Memory: Retain CryptoKey (extractable = false)
     Note over User, Memory: Password & derived key never leave browser memory
 
-    rect rgb(255, 230, 0)
+    rect rgba(255, 230, 0, 0.1)
     Note over User, API: Encrypting & Storing Data
     User->>Crypto: Encrypt JSON Payload (AES-256-GCM + 96-bit Random IV)
     Crypto-->>User: Return Base64 Ciphertext & Base64 IV
@@ -35,7 +35,7 @@ sequenceDiagram
     API-->>User: HTTP 201 Created
     end
 
-    rect rgb(78, 205, 196)
+    rect rgba(78, 205, 196, 0.1)
     Note over User, API: Fetching & Decrypting Data
     User->>API: GET /api/vault?type=note
     API->>DB: Query encrypted records
