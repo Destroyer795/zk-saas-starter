@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+:root {
+  --neo-bg: #FFFDF5;
+  --neo-card-bg: #FFFFFF;
+  --neo-black: #000000;
+  --neo-yellow: #FFE600;
+  --neo-pink: #FF6B6B;
+  --neo-cyan: #4ECDC4;
+  --neo-lime: #A8FF35;
+  --neo-purple: #B892FF;
+}
+
+body {
+  background-color: var(--neo-bg);
+  color: var(--neo-black);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  min-height: 100vh;
+}
+
+/* Neo-Brutalist Custom Utilities */
+
+.neo-box {
+  background-color: var(--neo-card-bg);
+  border: 3px solid var(--neo-black);
+  box-shadow: 4px 4px 0px 0px var(--neo-black);
+  transition: all 0.15s ease-in-out;
+}
+
+.neo-box-interactive {
+  background-color: var(--neo-card-bg);
+  border: 3px solid var(--neo-black);
+  box-shadow: 4px 4px 0px 0px var(--neo-black);
+  transition: all 0.15s ease-in-out;
+}
+
+.neo-box-interactive:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px var(--neo-black);
+}
+
+.neo-btn {
+  background-color: var(--neo-yellow);
+  color: var(--neo-black);
+  border: 3px solid var(--neo-black);
+  font-weight: 800;
+  padding: 0.625rem 1.25rem;
+  box-shadow: 4px 4px 0px 0px var(--neo-black);
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  user-select: none;
+}
+
+.neo-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px var(--neo-black);
+}
+
+.neo-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px var(--neo-black);
+}
+
+.neo-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 2px 2px 0px 0px var(--neo-black);
+}
+
+.neo-btn-secondary {
+  background-color: var(--neo-cyan);
+}
+
+.neo-btn-danger {
+  background-color: var(--neo-pink);
+  color: #FFFFFF;
+}
+
+.neo-btn-accent {
+  background-color: var(--neo-lime);
+}
+
+.neo-input {
+  width: 100%;
+  background-color: #FFFFFF;
+  border: 3px solid var(--neo-black);
+  padding: 0.625rem 0.875rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.95rem;
+  color: var(--neo-black);
+  box-shadow: 3px 3px 0px 0px var(--neo-black);
+  outline: none;
+  transition: all 0.15s ease-in-out;
+}
+
+.neo-input:focus {
+  background-color: #FFFFFF;
+  box-shadow: 5px 5px 0px 0px var(--neo-black);
+  transform: translate(-1px, -1px);
+}
+
+.neo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 2px solid var(--neo-black);
+  padding: 0.2rem 0.6rem;
+  font-weight: 800;
+  font-size: 0.75rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  box-shadow: 2px 2px 0px 0px var(--neo-black);
+  text-transform: uppercase;
+}
+
+.neo-badge-green {
+  background-color: var(--neo-lime);
+}
+
+.neo-badge-yellow {
+  background-color: var(--neo-yellow);
+}
+
+.neo-badge-pink {
+  background-color: var(--neo-pink);
+  color: #FFFFFF;
+}
+
+.neo-badge-cyan {
+  background-color: var(--neo-cyan);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--neo-bg);
+  border-left: 2px solid var(--neo-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neo-yellow);
+  border: 2px solid var(--neo-black);
+}

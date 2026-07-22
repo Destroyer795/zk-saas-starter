@@ -1,0 +1,33 @@
+# Docker Compose - Local Development / Self-Hosting
+# Usage:
+#   docker compose up --build        # Build and start on port 4000
+#   docker compose down              # Stop and remove containers
+#   docker compose logs -f app       # Follow container logs
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: zk-saas-starter:latest
+    container_name: zk-saas-starter
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT:-4000}:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
+      - DATABASE_URL=file:/app/prisma/data/dev.db
+    volumes:
+      - sqlite-data:/app/prisma/data
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  sqlite-data:
+    driver: local
